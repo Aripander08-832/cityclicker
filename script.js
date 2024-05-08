@@ -231,7 +231,7 @@ var City = function(data) {
   this.industry = new Zone(this, 'Industrial', '&clubs;', data.industry);
   this.updates = document.createElement('div');
   this.container.appendChild(this.updates);
-  this.transport = new Update(this, data.transport, 1000, 2.1,
+  this.transport = new Update(this, data.transport, 10, 1.8,
     'Increase advertising budget.', [
       'Add a road to CITY.',
       'Connect a highway to CITY.',
@@ -257,7 +257,7 @@ var City = function(data) {
         'Time to purchase': formatTime(this.city, this.price()),
       }, 'Gain population faster');
     });
-  this.residentDemand = new Update(this, data.residentDemand, 5000, 1.9,
+  this.residentDemand = new Update(this, data.residentDemand, 100, 1.7,
     'Pay people for moving to CITY.', [
       'Build a school in CITY.',
       'Build a hospital in CITY.',
@@ -283,7 +283,7 @@ var City = function(data) {
         'Time to purchase': formatTime(this.city, this.price()),
       }, 'Increase residential demand');
     });
-  this.commerceDemand = new Update(this, data.commerceDemand, 5000, 1.8,
+  this.commerceDemand = new Update(this, data.commerceDemand, 5000, 1.5,
     'Give corporations extra votes.', [
       'Put up billboards in CITY.',
       'Build a mall in CITY.',
@@ -307,7 +307,7 @@ var City = function(data) {
         'Time to purchase': formatTime(this.city, this.price()),
       }, 'Increase commercial demand');
     });
-  this.industryDemand = new Update(this, data.industryDemand, 10000, 1.7,
+  this.industryDemand = new Update(this, data.industryDemand, 10000, 1.4,
     'Increase robot workforce.', [
       'Build a power plant in CITY.',
       'Build a factory in CITY.',
