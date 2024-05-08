@@ -333,7 +333,7 @@ var City = function(data) {
         'Time to purchase': formatTime(this.city, this.price()),
       }, 'Increase industrial demand');
     });
-  this.residentTax = new Update(this, data.residentTax, 10, 1.12, function() {
+  this.residentTax = new Update(this, data.residentTax, 10, 1.02, function() {
     return 'Raise Residential tax (<b>' + this.resident.tax + '</b>%).'}.bind(this), [],
     function() {
       output(this.alt, {
