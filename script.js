@@ -333,33 +333,33 @@ var City = function(data) {
         'Time to purchase': formatTime(this.city, this.price()),
       }, 'Increase industrial demand');
     });
-  this.residentTax = new Update(this, data.residentTax, 1000, 2.2, function() {
+  this.residentTax = new Update(this, data.residentTax, 100, 2.2, function() {
     return 'Raise Residential tax (<b>' + this.resident.tax + '</b>%).'}.bind(this), [],
     function() {
       output(this.alt, {
-        'New Rate': this.city.resident.tax + 3 + '%',
+        'New Rate': this.city.resident.tax + 5 + '%',
         'Current income': format(this.city.resident.income()),
-        'Upgrade income': format(this.city.resident.income(this.city.resident.tax + 3)),
+        'Upgrade income': format(this.city.resident.income(this.city.resident.tax + 5)),
         'Time to purchase': formatTime(this.city, this.price()),
       }, 'Raise residential taxes');
     });
-  this.commerceTax = new Update(this, data.commerceTax, 1000, 2.1, function() {
+  this.commerceTax = new Update(this, data.commerceTax, 100, 2.1, function() {
     return 'Raise Commercial tax (<b>' + this.commerce.tax + '</b>%).'}.bind(this), [],
     function() {
       output(this.alt, {
-        'New Rate': this.city.commerce.tax + 3+ '%',
+        'New Rate': this.city.commerce.tax + 5+ '%',
         'Current income': format(this.city.commerce.income()),
-        'Upgrade income': format(this.city.commerce.income(this.city.commerce.tax + 3)),
+        'Upgrade income': format(this.city.commerce.income(this.city.commerce.tax + 5)),
         'Time to purchase': formatTime(this.city, this.price()),
       }, 'Raise commercial taxes');
     });
-  this.industryTax = new Update(this, data.industryTax, 1000, 2.05, function() {
+  this.industryTax = new Update(this, data.industryTax, 100, 2.05, function() {
     return 'Raise Industrial tax (<b>' + this.industry.tax + '</b>%).'}.bind(this), [],
     function() {
       output(this.alt, {
-        'New Rate': this.city.industry.tax + 3 + '%',
+        'New Rate': this.city.industry.tax + 5 + '%',
         'Current income': format(this.city.industry.income()),
-        'Upgrade income': format(this.city.industry.income(this.city.industry.tax + 3)),
+        'Upgrade income': format(this.city.industry.income(this.city.industry.tax + 5)),
         'Time to purchase': formatTime(this.city, this.price()),
       }, 'Raise industrial taxes');
     });
@@ -438,14 +438,14 @@ City.prototype.report = function() {
   html += '<h3>Opinion</h3>';
   if (resident >= 1) {
     var demand = this.transport.label.innerHTML;
-    html += 'Housing is currently in demand! Why won\'t the mayor zone some more residential';
+    html += 'Housing is currently in demand! Why won\'t the mayor  some more residential';
     if (this.residentTax.price() < this.currency) {
       html += ' or raise that tax rate of ' + this.resident.tax + '%';
     }
     html += '? While on the subject of getting more citizens into the city, the proposal to <u>' + demand[0].toLowerCase() + demand.slice(1, demand.length - 1) + '</u> would likely help fill those built houses faster in the future.';
   } else {
     var demand = this.residentDemand.label.innerHTML;
-    html += 'Zoned residential is currently being unused. Has the mayor considered the proposal to <u>' + demand[0].toLowerCase() + demand.slice(1, demand.length - 1) + '</u> to encourage people to move in?';
+    html += 'd residential is currently being unused. Has the mayor considered the proposal to <u>' + demand[0].toLowerCase() + demand.slice(1, demand.length - 1) + '</u> to encourage people to move in?';
   }
   html += '<br><br>';
   var commerce = this.commerce.demand / this.commerce.capacity();
@@ -455,11 +455,11 @@ City.prototype.report = function() {
     if (this.commerceTax.price() < this.currency) {
       html += 'either bump up that tax rate of ' + this.commerce.tax + '% or ';
     }
-    html += 'add more commercial zones.';
+    html += 'add more commercial s.';
   } else {
     var demand = this.commerceDemand.label.innerHTML;
     html += resident >= 1 ? 'Unlike' : 'Like';
-    html += ' residential, zoned commercial still lies empty. When will the mayor <u>' + demand[0].toLowerCase() + demand.slice(1, demand.length - 1) + '</u> so businesses can function here?';
+    html += ' residential, d commercial still lies empty. When will the mayor <u>' + demand[0].toLowerCase() + demand.slice(1, demand.length - 1) + '</u> so businesses can function here?';
   }
   html += '<br><br>';
   var industry = this.industry.demand / this.industry.capacity();
