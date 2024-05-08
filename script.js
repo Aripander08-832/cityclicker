@@ -333,7 +333,7 @@ var City = function(data) {
         'Time to purchase': formatTime(this.city, this.price()),
       }, 'Increase industrial demand');
     });
-  this.residentTax = new Update(this, data.residentTax, 10, 1.8, function() {
+  this.residentTax = new Update(this, data.residentTax, 10, 1.3, function() {
     return 'Raise Residential tax (<b>' + this.resident.tax + '</b>%).'}.bind(this), [],
     function() {
       output(this.alt, {
@@ -343,7 +343,7 @@ var City = function(data) {
         'Time to purchase': formatTime(this.city, this.price()),
       }, 'Raise residential taxes');
     });
-  this.commerceTax = new Update(this, data.commerceTax, 10, 1.78, function() {
+  this.commerceTax = new Update(this, data.commerceTax, 10, 1.28, function() {
     return 'Raise Commercial tax (<b>' + this.commerce.tax + '</b>%).'}.bind(this), [],
     function() {
       output(this.alt, {
@@ -353,7 +353,7 @@ var City = function(data) {
         'Time to purchase': formatTime(this.city, this.price()),
       }, 'Raise commercial taxes');
     });
-  this.industryTax = new Update(this, data.industryTax, 10, 1.75, function() {
+  this.industryTax = new Update(this, data.industryTax, 10, 1.25, function() {
     return 'Raise Industrial tax (<b>' + this.industry.tax + '</b>%).'}.bind(this), [],
     function() {
       output(this.alt, {
