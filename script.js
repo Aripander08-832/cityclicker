@@ -337,9 +337,9 @@ var City = function(data) {
     return 'Raise Residential tax (<b>' + this.resident.tax + '</b>%).'}.bind(this), [],
     function() {
       output(this.alt, {
-        'New Rate': this.city.resident.tax + 5 + '%',
+        'New Rate': this.city.resident.tax + 1 + '%',
         'Current income': format(this.city.resident.income()),
-        'Upgrade income': format(this.city.resident.income(this.city.resident.tax + 5)),
+        'Upgrade income': format(this.city.resident.income(this.city.resident.tax + 1)),
         'Time to purchase': formatTime(this.city, this.price()),
       }, 'Raise residential taxes');
     });
@@ -347,9 +347,9 @@ var City = function(data) {
     return 'Raise Commercial tax (<b>' + this.commerce.tax + '</b>%).'}.bind(this), [],
     function() {
       output(this.alt, {
-        'New Rate': this.city.commerce.tax + 5+ '%',
+        'New Rate': this.city.commerce.tax + 1+ '%',
         'Current income': format(this.city.commerce.income()),
-        'Upgrade income': format(this.city.commerce.income(this.city.commerce.tax + 5)),
+        'Upgrade income': format(this.city.commerce.income(this.city.commerce.tax + 1)),
         'Time to purchase': formatTime(this.city, this.price()),
       }, 'Raise commercial taxes');
     });
@@ -357,9 +357,9 @@ var City = function(data) {
     return 'Raise Industrial tax (<b>' + this.industry.tax + '</b>%).'}.bind(this), [],
     function() {
       output(this.alt, {
-        'New Rate': this.city.industry.tax + 5 + '%',
+        'New Rate': this.city.industry.tax + 1 + '%',
         'Current income': format(this.city.industry.income()),
-        'Upgrade income': format(this.city.industry.income(this.city.industry.tax + 5)),
+        'Upgrade income': format(this.city.industry.income(this.city.industry.tax + 1)),
         'Time to purchase': formatTime(this.city, this.price()),
       }, 'Raise industrial taxes');
     });
