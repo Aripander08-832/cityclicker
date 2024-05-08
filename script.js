@@ -249,7 +249,7 @@ var City = function(data) {
       'Advertise CITY in other solar systems.',
       'Advertise CITY to other galaxies.',
     ], function() {
-      var multiplier = Math.max(1.01, 2 - this.city.resident.tax / 300);
+      var multiplier = Math.max(1.01, 2 - this.city.resident.tax / 2700);
       output(this.alt, {
         Multiplier: format(multiplier, '&times;'),
         'Current rate': format(Math.pow(multiplier, this.level), '&hearts; per second'),
