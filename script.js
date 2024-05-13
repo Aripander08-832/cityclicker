@@ -50,7 +50,7 @@ var Zone = function(city, type, symbol, load) {
     this.sizes.push({
       amount: 0,
       built: 0,
-      density: Math.pow(10, .5 * i * i + .5 * i),
+      density: Math.pow(1.2, .5 * i * i + .5 * i),
       label: label
     });
   }
@@ -231,7 +231,7 @@ var City = function(data) {
   this.industry = new Zone(this, 'Industrial', '&clubs;', data.industry);
   this.updates = document.createElement('div');
   this.container.appendChild(this.updates);
-  this.transport = new Update(this, data.transport, 10, 1.02,
+  this.transport = new Update(this, data.transport, 10, 1.002,
     'Increase advertising budget.', [
       'Add a road to CITY.',
       'Connect a highway to CITY.',
@@ -249,7 +249,7 @@ var City = function(data) {
       'Advertise CITY in other solar systems.',
       'Advertise CITY to other galaxies.',
     ], function() {
-      var multiplier = Math.max(1.01, 2 - this.city.resident.tax / 2700);
+      var multiplier = Math.max(1.01, 2 - this.city.resident.tax / 100);
       output(this.alt, {
         Multiplier: format(multiplier, '&times;'),
         'Current rate': format(Math.pow(multiplier, this.level), '&hearts; per second'),
@@ -257,7 +257,7 @@ var City = function(data) {
         'Time to purchase': formatTime(this.city, this.price()),
       }, 'Gain population faster');
     });
-  this.residentDemand = new Update(this, data.residentDemand, 100, 1.7,
+  this.residentDemand = new Update(this, data.residentDemand, 10, 1.7,
     'Pay people for moving to CITY.', [
       'Build a school in CITY.',
       'Build a hospital in CITY.',
@@ -283,7 +283,7 @@ var City = function(data) {
         'Time to purchase': formatTime(this.city, this.price()),
       }, 'Increase residential demand');
     });
-  this.commerceDemand = new Update(this, data.commerceDemand, 5000, 1.85,
+  this.commerceDemand = new Update(this, data.commerceDemand, 50, 1.85,
     'Give corporations extra votes.', [
       'Put up billboards in CITY.',
       'Build a mall in CITY.',
@@ -307,7 +307,7 @@ var City = function(data) {
         'Time to purchase': formatTime(this.city, this.price()),
       }, 'Increase commercial demand');
     });
-  this.industryDemand = new Update(this, data.industryDemand, 10000, 1.4,
+  this.industryDemand = new Update(this, data.industryDemand, 100, 1.4,
     'Increase robot workforce.', [
       'Build a power plant in CITY.',
       'Build a factory in CITY.',
@@ -376,7 +376,7 @@ var City = function(data) {
       city = new City({});
     }
   }.bind(this));
-  this.news = new Update(this, data.news, 1, 1.07, function() {
+  this.news = new Update(this, data.news, 1, 1.007, function() {
     if (this.population > 1e16) {
       return 'Receive CITY thought broadcast.';
     } else if (this.population > 1e12) {
