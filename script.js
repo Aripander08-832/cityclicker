@@ -50,7 +50,7 @@ var Zone = function(city, type, symbol, load) {
     this.sizes.push({
       amount: 0,
       built: 0,
-      density: Math.pow(4, .5 * i * i + .5 * i),
+      density: Math.pow(9, .12 * i * i + .4 * i),
       label: label
     });
   }
