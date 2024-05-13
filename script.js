@@ -231,7 +231,7 @@ var City = function(data) {
   this.industry = new Zone(this, 'Industrial', '&clubs;', data.industry);
   this.updates = document.createElement('div');
   this.container.appendChild(this.updates);
-  this.transport = new Update(this, data.transport, 10, 1.2,
+  this.transport = new Update(this, data.transport, 10, 1.02,
     'Increase advertising budget.', [
       'Add a road to CITY.',
       'Connect a highway to CITY.',
